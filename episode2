@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Épisode 2 - Ma jolie</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      color: #2f2f2f;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #d81b60;
+      text-align: center;
+    }
+    .music {
+      display: none;
+      margin: 2em auto;
+      text-align: center;
+    }
+    .back-button {
+      display: block;
+      margin: 2em auto;
+      padding: 1em 2em;
+      background: #f8bbd0;
+      color: #4a148c;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ce93d8;
+    }
+    .back-button:hover {
+      background: #f48fb1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Épisode 2 : Ma jolie</h1>
+
+    <p>
+      Zig découvre la grossesse de Myriam et décide d’en informer Kostia, son amant toxique, persuadée que cela guérira leur lien. Ils décident effectivement de se remettre ensemble, Kostia sort même un freestyle légèrement cringe sur le bébé à venir. Luisa et Yves, qui le haïssent, sont au désespoir. Zig reste convaincue que cet enfant est leur bénédiction.
+    </p>
+
+    <div class="music" id="musicPlayer">
+      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://www.youtube.com/embed/Zk27hKhuiyg?autoplay=1">
+      </iframe>
+    </div>
+
+    <button class="back-button" onclick="window.location.href='index.html'">← Retour à l'accueil</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('musique') === 'oui') {
+      document.getElementById('musicPlayer').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
