@@ -111,8 +111,9 @@
 
   <script>
     function demarrerScenario() {
-      const musique = confirm("Veux-tu lire en musique ?");
-      const param = musique ? "oui" : "non";
+      const choix = window.prompt("Veux-tu lire en musique ?\nRéponds par : oui ou non");
+      if (choix === null) return; // utilisateur a annulé
+      const param = (choix.toLowerCase() === "oui") ? "oui" : "non";
       window.location.href = `episode1.html?musique=${param}`;
     }
   </script>
