@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accès protégé - ZIGZAG</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #f3e5f5, #fce4ec);
+      color: #2f2f2f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2em;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 300px;
+    }
+    h1 {
+      color: #d81b60;
+    }
+    input[type="password"] {
+      padding: 0.7em;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    button {
+      padding: 0.7em 1.5em;
+      background-color: #f8bbd0;
+      color: #4a148c;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #f48fb1;
+    }
+    .error {
+      color: red;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 Accès ZIGZAG</h1>
+    <p>Entrez le mot de passe pour accéder au projet :</p>
+    <input type="password" id="password" placeholder="Mot de passe">
+    <button onclick="checkPassword()">Entrer</button>
+    <div class="error" id="error"></div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('password').value;
+      const correctPassword = 'chateau2025';
+      if (input === correctPassword) {
+        window.location.href = 'index.html';
+      } else {
+        document.getElementById('error').innerText = 'Mot de passe incorrect.';
+      }
+    }
+  </script>
+</body>
+</html>
