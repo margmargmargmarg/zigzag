@@ -22,9 +22,14 @@
       text-align: center;
     }
     .music {
-      display: none;
       margin: 2em auto;
       text-align: center;
+    }
+    iframe {
+      width: 560px;
+      height: 315px;
+      max-width: 100%;
+      border: none;
     }
     .button-wrapper {
       display: flex;
@@ -58,23 +63,29 @@
       D’abord, elle ne se fait pas repérer. Tout le monde se sent mieux, sans trop savoir pourquoi. Puis elle va trop loin, crée des arc-en-ciels avec les objets de chacun et se fait démasquer. Luisa trouve ça mignon et inspirant. Mais Myriam s’énerve d’une telle intrusion. Zig est tombée sur un test de grossesse positif que Myriam gardait caché.
     </p>
 
-    <div class="music" id="musicPlayer">
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-        src="https://www.youtube.com/embed/STP4cCpyScE?autoplay=1">
-      </iframe>
-    </div>
+    <div class="music" id="musicPlayer"></div>
 
     <div class="button-wrapper">
-      <a class="nav-button" href="index.html">Accueil</a>
-      <a class="nav-button" href="episode2.html?musique=oui">La suite →</a>
+      <a class="nav-button" href="zigzagscript.html">Accueil</a>
+      <a id="nextEpisode" class="nav-button" href="#">La suite →</a>
     </div>
   </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    if (params.get('musique') === 'oui') {
-      document.getElementById('musicPlayer').style.display = 'block';
+    const musique = params.get('musique');
+    const musicContainer = document.getElementById('musicPlayer');
+
+    // Crée dynamiquement le lecteur avec ou sans autoplay
+    if (musique === 'oui' || musique === 'non') {
+      const autoplay = musique === 'oui' ? '1' : '0';
+      musicContainer.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/STP4cCpyScE?autoplay=${autoplay}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      `;
     }
+
+    // Transfert du paramètre musique à la page suivante
+    document.getElementById('nextEpisode').href = `episode2.html?musique=${musique}`;
   </script>
 </body>
 </html>
