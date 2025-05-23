@@ -36,6 +36,7 @@
       justify-content: center;
       gap: 2em;
       margin-top: 2em;
+      flex-wrap: wrap;
     }
     .nav-button {
       padding: 1em 2em;
@@ -66,5 +67,25 @@
     <div class="music" id="musicPlayer"></div>
 
     <div class="button-wrapper">
-      <a class="nav-button" href="zigzagscript.html">Accueil</a>
-      <a class="nav-button" hre
+      <a class="nav-button" href="zigzagscript.html">Pitch</a>
+      <a id="previousEpisode" class="nav-button" href="#">← Épisode précédent</a>
+      <a class="nav-button" href="sommaire.html">Sommaire</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const musique = params.get('musique');
+    const musicContainer = document.getElementById('musicPlayer');
+
+    if (musique === 'oui' || musique === 'non') {
+      const autoplay = musique === 'oui' ? '1' : '0';
+      musicContainer.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/8JGBNkLM9_8?autoplay=${autoplay}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      `;
+    }
+
+    document.getElementById('previousEpisode').href = `episode9.html?musique=${musique}`;
+  </script>
+</body>
+</html>
