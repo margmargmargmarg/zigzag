@@ -36,6 +36,7 @@
       justify-content: center;
       gap: 2em;
       margin-top: 2em;
+      flex-wrap: wrap;
     }
     .nav-button {
       padding: 1em 2em;
@@ -65,6 +66,7 @@
 
     <div class="button-wrapper">
       <a class="nav-button" href="zigzagscript.html">Accueil</a>
+      <a id="previousEpisode" class="nav-button" href="#">← Épisode précédent</a>
       <a id="nextEpisode" class="nav-button" href="#">La suite →</a>
     </div>
   </div>
@@ -82,6 +84,7 @@
     }
 
     document.getElementById('nextEpisode').href = `episode4.html?musique=${musique}`;
+    document.getElementById('previousEpisode').href = `episode2.html?musique=${musique}`;
   </script>
 </body>
 </html>
