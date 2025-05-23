@@ -45,7 +45,7 @@
     .video {
       margin-top: 2em;
     }
-    .btn-music {
+    .btn-music, .btn-scenario {
       background-color: #f8bbd0;
       color: #4a148c;
       border: none;
@@ -56,7 +56,7 @@
       box-shadow: 0 0 10px #ce93d8;
       margin-top: 1em;
     }
-    .btn-music:hover {
+    .btn-music:hover, .btn-scenario:hover {
       background-color: #f48fb1;
     }
     .pitch {
@@ -72,20 +72,38 @@
       color: #880e4f;
       margin-top: 1em;
     }
-    .btn-scenario {
+    .dialogue-box {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 2em;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      text-align: center;
+      z-index: 1000;
+    }
+    .dialogue-box button {
+      margin: 1em;
+      padding: 0.7em 1.5em;
       background-color: #f8bbd0;
-      color: #4a148c;
       border: none;
-      padding: 1em 2em;
+      border-radius: 15px;
       font-weight: bold;
       cursor: pointer;
-      border-radius: 20px;
-      box-shadow: 0 0 10px #ce93d8;
-      margin-top: 2em;
-      font-size: 1.2em;
+      color: #4a148c;
     }
-    .btn-scenario:hover {
+    .dialogue-box button:hover {
       background-color: #f48fb1;
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 999;
     }
   </style>
 </head>
@@ -106,15 +124,24 @@
       <p>Une dramédie en zigzag, où l’amitié, l’espoir et la folie se mêlent dans un âge fragile où tout peut basculer.</p>
       <p class="logline">Elle veut faire le bien. Mais elle va surtout foutre le bordel.</p>
     </div>
-    <button class="btn-scenario" onclick="demarrerScenario()">📖 Lire le scénario</button>
+    <button class="btn-scenario" onclick="showDialogue()">📖 Lire le scénario</button>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="dialogue-box" id="dialogue">
+    <p>Veux-tu lire en musique ?</p>
+    <button onclick="demarrerScenario('oui')">Oui</button>
+    <button onclick="demarrerScenario('non')">Non</button>
   </div>
 
   <script>
-    function demarrerScenario() {
-      const choix = window.prompt("Veux-tu lire en musique ?\nRéponds par : oui ou non");
-      if (choix === null) return; // utilisateur a annulé
-      const param = (choix.toLowerCase() === "oui") ? "oui" : "non";
-      window.location.href = `episode1.html?musique=${param}`;
+    function showDialogue() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('dialogue').style.display = 'block';
+    }
+
+    function demarrerScenario(choix) {
+      window.location.href = `episode1.html?musique=${choix}`;
     }
   </script>
 </body>
