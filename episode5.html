@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Épisode 5 - Miss the rage</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      color: #2f2f2f;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #d81b60;
+      text-align: center;
+    }
+    .music {
+      margin: 2em auto;
+      text-align: center;
+    }
+    iframe {
+      width: 560px;
+      height: 315px;
+      max-width: 100%;
+      border: none;
+    }
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin-top: 2em;
+    }
+    .nav-button {
+      padding: 1em 2em;
+      background: #f8bbd0;
+      color: #4a148c;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ce93d8;
+      text-decoration: none;
+    }
+    .nav-button:hover {
+      background: #f48fb1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Épisode 5 : Miss the rage</h1>
+
+    <p>
+      Zig se met à fond dans le rôle l’agricultrice urbaine pachamama. Elle teste un rituel de purification chamanique en pulvérisant un mélange de fluides irrespirables sur les plantes... qui meurent toutes. Pire, le liquide déclenche une invasion de poison d’argent. Quand elle déclare vouloir coexister avec eux, ses colocs mettent le hola.
+      <br><br>
+      Ils carbonisent l’appart de produits chimiques. Myriam revoie Kostia en cachette en le faisant monter au château avec un système de poulie. Luisa parvient à adoucir Zig, qui accepte d’aller chez le psy. Yves lui donne le nom du sien. Elle prend rendez vous avec légèreté, comme si elle réservait chez le coiffeur.
+    </p>
+
+    <div class="music" id="musicPlayer"></div>
+
+    <div class="button-wrapper">
+      <a class="nav-button" href="zigzagscript.html">Accueil</a>
+      <a id="nextEpisode" class="nav-button" href="#">La suite →</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const musique = params.get('musique');
+    const musicContainer = document.getElementById('musicPlayer');
+
+    if (musique === 'oui' || musique === 'non') {
+      const autoplay = musique === 'oui' ? '1' : '0';
+      musicContainer.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/e9u0HmXLPmA?autoplay=${autoplay}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      `;
+    }
+
+    document.getElementById('nextEpisode').href = `episode6.html?musique=${musique}`;
+  </script>
+</body>
+</html>

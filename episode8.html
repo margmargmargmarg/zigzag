@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Épisode 8 - Bailando</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      color: #2f2f2f;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #d81b60;
+      text-align: center;
+    }
+    .music {
+      margin: 2em auto;
+      text-align: center;
+    }
+    iframe {
+      width: 560px;
+      height: 315px;
+      max-width: 100%;
+      border: none;
+    }
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin-top: 2em;
+    }
+    .nav-button {
+      padding: 1em 2em;
+      background: #f8bbd0;
+      color: #4a148c;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ce93d8;
+      text-decoration: none;
+    }
+    .nav-button:hover {
+      background: #f48fb1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Épisode 8 : Bailando</h1>
+
+    <p>
+      Zig traîne seule dans la ville et ramène des inconnus croisés en soirée transformant l’appart en after infini. Le frigo est pillé, quelqu’un dort dans la baignoire et campe dans la salle de bain. Elle vide le dressing, laisse à chacun une tenue, enfile la sienne, fait une boule avec les vêtements. Elle roule dans la ville cette grosse boule.
+      <br><br>
+      Ses amis la rattrapent. S’en suit alors un match de foot avec la boule de vêtement géante, en pleine rue. Cette scène absurde les rend à nouveau complice. Zig est transportée. Mais Yves et Myriam, eux, sont désormais certains qu’elle n’est plus vraiment elle-même.
+    </p>
+
+    <div class="music" id="musicPlayer"></div>
+
+    <div class="button-wrapper">
+      <a class="nav-button" href="zigzagscript.html">Accueil</a>
+      <a id="nextEpisode" class="nav-button" href="#">La suite →</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const musique = params.get('musique');
+    const musicContainer = document.getElementById('musicPlayer');
+
+    if (musique === 'oui' || musique === 'non') {
+      const autoplay = musique === 'oui' ? '1' : '0';
+      musicContainer.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/xiWtqVtd1Oo?autoplay=${autoplay}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      `;
+    }
+
+    document.getElementById('nextEpisode').href = `episode9.html?musique=${musique}`;
+  </script>
+</body>
+</html>

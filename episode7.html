@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Épisode 7 - Hey</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      color: #2f2f2f;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #d81b60;
+      text-align: center;
+    }
+    .music {
+      margin: 2em auto;
+      text-align: center;
+    }
+    iframe {
+      width: 560px;
+      height: 315px;
+      max-width: 100%;
+      border: none;
+    }
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin-top: 2em;
+    }
+    .nav-button {
+      padding: 1em 2em;
+      background: #f8bbd0;
+      color: #4a148c;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ce93d8;
+      text-decoration: none;
+    }
+    .nav-button:hover {
+      background: #f48fb1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Épisode 7 : Hey</h1>
+
+    <p>
+      Alors que la cohabitation forcée avec Yvan rend la vie chaotique à la coloc, Zig propose à ses amis de revivre son voyage spirituel. Yves et Myriam refusent. Luisa accepte, elles prennent ensembles de l’ayahuasca. Luisa foire sa performance, se grille. Zig, exaltée, tente de l’aider en montant sur scène. Ses amis la soutiennent mais elle se grille auprès du dernier lieu qui la faisait jouer.
+      <br><br>
+      Myriam comprend que Zig est en fait très mal, qu’elle n’est plus elle même. Elle se dit qu’elle l’a laissé tomber en croyant qu’elle était juste narcissique et elle s’en veut. Yves en est sûr : Zig est en délire depuis le Brésil. Yvan confirme. Myriam se dispute avec lui et le vire de la coloc, lui disant qu’il ne sert à rien. Yves ne s’y oppose pas.
+      <br><br>
+      Luisa continue de la soutenir, envers et contre tout. Elle préfère lui faire croire que tout va bien. Le moment où elle craque, c’est quand Zig lui jette toute sa came. Luisa pète un câble. Yves en profite : il pense qu’il faut agir. Myriam hésite.
+      <br><br>
+      D’un coup, Zig se referme. Elle évite le contact, parle peu, sourit trop. Les trois autres, en cachette, évoquent un trouble plus grave qu’ils ne le pensaient.
+    </p>
+
+    <div class="music" id="musicPlayer"></div>
+
+    <div class="button-wrapper">
+      <a class="nav-button" href="zigzagscript.html">Accueil</a>
+      <a id="nextEpisode" class="nav-button" href="#">La suite →</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const musique = params.get('musique');
+    const musicContainer = document.getElementById('musicPlayer');
+
+    if (musique === 'oui' || musique === 'non') {
+      const autoplay = musique === 'oui' ? '1' : '0';
+      musicContainer.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/tVCUAXOBF7w?autoplay=${autoplay}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      `;
+    }
+
+    document.getElementById('nextEpisode').href = `episode8.html?musique=${musique}`;
+  </script>
+</body>
+</html>

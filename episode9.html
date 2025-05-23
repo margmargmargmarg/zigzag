@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Épisode 9 - Café Com Leite</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      color: #2f2f2f;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #d81b60;
+      text-align: center;
+    }
+    .music {
+      margin: 2em auto;
+      text-align: center;
+    }
+    iframe {
+      width: 560px;
+      height: 315px;
+      max-width: 100%;
+      border: none;
+    }
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin-top: 2em;
+    }
+    .nav-button {
+      padding: 1em 2em;
+      background: #f8bbd0;
+      color: #4a148c;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ce93d8;
+      text-decoration: none;
+    }
+    .nav-button:hover {
+      background: #f48fb1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Épisode 9 : Café Com Leite</h1>
+
+    <p>
+      Le lendemain, Zig est étrangement normale, solaire, mais calme. Elle cuisine joyeusement le petit déjeuner, sourit. Ils se regroupent autour d’elle dans la cuisine et elle répond rationnellement à leurs questions. Ils sont incrédules, mais un peu soulagés. Ils vivent un moment suspendu, comme avant.
+      <br><br>
+      Zig passe alors un mot discrètement à Luisa : « Nous sommes filmés :-) » Luisa sent un vertige. Elle reste mutique et figée. Zig parle d’un banquet à venir. Elle attend plein de gens qui doivent les rejoindre. Yves et Myriam se rendent vite compte que c’est faux. Luisa finit par avouer à Yves et Myriam que Zig est toujours en délire.
+      <br><br>
+      Zig, un peu sur la défensive, n’écoute plus. Elle monte sur la table, enlève ses vêtements. Elle pense qu’ils arrivent, qu’ils sont proches. Elle est en transe.
+    </p>
+
+    <div class="music" id="musicPlayer"></div>
+
+    <div class="button-wrapper">
+      <a class="nav-button" href="zigzagscript.html">Accueil</a>
+      <a id="nextEpisode" class="nav-button" href="#">La suite →</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const musique = params.get('musique');
+    const musicContainer = document.getElementById('musicPlayer');
+
+    if (musique === 'oui' || musique === 'non') {
+      const autoplay = musique === 'oui' ? '1' : '0';
+      musicContainer.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/w2ixSS-8Qw8?autoplay=${autoplay}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      `;
+    }
+
+    document.getElementById('nextEpisode').href = `episode10.html?musique=${musique}`;
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Épisode 6 - Always forever</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      color: #2f2f2f;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #d81b60;
+      text-align: center;
+    }
+    .music {
+      margin: 2em auto;
+      text-align: center;
+    }
+    iframe {
+      width: 560px;
+      height: 315px;
+      max-width: 100%;
+      border: none;
+    }
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin-top: 2em;
+    }
+    .nav-button {
+      padding: 1em 2em;
+      background: #f8bbd0;
+      color: #4a148c;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ce93d8;
+      text-decoration: none;
+    }
+    .nav-button:hover {
+      background: #f48fb1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Épisode 6 : Always forever</h1>
+
+    <p>
+      Zig commence ses séances chez Yvan, son nouveau psychiatre. Elle intercepte des textos érotiques entre Yves et lui. Elle se persuade qu’il y a une romance, quand elle en parle à Yves, il lui confie préférer que leur romance reste virtuelle.
+      <br><br>
+      Lors d’une séance chez le psy, elle vole son téléphone et envoie un message à Yves, lui faisant une déclaration d’amour. Yves commence à y croire.
+      <br><br>
+      Myriam se fait prendre en flag avec Kostia par ses 3 colocs. Zig est la seule à comprendre Myriam et à ne pas la juger. Restées toutes les deux seules, elles se retrouvent enfin.
+      <br><br>
+      Zig fait tout pour qu’ils se croisent, mais Yves tombe sur Yvan accompagné de son mari. Ambiance terrible. Le psy se fait jeter par son mec, et vient squatter au Château, en pleine rupture.
+    </p>
+
+    <div class="music" id="musicPlayer"></div>
+
+    <div class="button-wrapper">
+      <a class="nav-button" href="zigzagscript.html">Accueil</a>
+      <a id="nextEpisode" class="nav-button" href="#">La suite →</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const musique = params.get('musique');
+    const musicContainer = document.getElementById('musicPlayer');
+
+    if (musique === 'oui' || musique === 'non') {
+      const autoplay = musique === 'oui' ? '1' : '0';
+      musicContainer.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/Gqk7DocjQ3w?autoplay=${autoplay}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      `;
+    }
+
+    document.getElementById('nextEpisode').href = `episode7.html?musique=${musique}`;
+  </script>
+</body>
+</html>
