@@ -36,6 +36,7 @@
       justify-content: center;
       gap: 2em;
       margin-top: 2em;
+      flex-wrap: wrap;
     }
     .nav-button {
       padding: 1em 2em;
@@ -60,7 +61,7 @@
     <p>
       Le lendemain, Zig est étrangement normale, solaire, mais calme. Elle cuisine joyeusement le petit déjeuner, sourit. Ils se regroupent autour d’elle dans la cuisine et elle répond rationnellement à leurs questions. Ils sont incrédules, mais un peu soulagés. Ils vivent un moment suspendu, comme avant.
       <br><br>
-      Zig passe alors un mot discrètement à Luisa : « Nous sommes filmés :-) » Luisa sent un vertige. Elle reste mutique et figée. Zig parle d’un banquet à venir. Elle attend plein de gens qui doivent les rejoindre. Yves et Myriam se rendent vite compte que c’est faux. Luisa finit par avouer à Yves et Myriam que Zig est toujours en délire.
+      Zig passe alors un mot discrètement à Luisa : « Nous sommes filmés :-) » Luisa sent un vertige. Elle reste mutique et figée. Zig parle d’un banquet à venir. Elle attend plein de gens qui doivent les rejoindre. Yves et Myriam se rendent vite compte que c’est faux. Luisa finit par avouer à Yves et Myriam que Zig est toujours en délire.
       <br><br>
       Zig, un peu sur la défensive, n’écoute plus. Elle monte sur la table, enlève ses vêtements. Elle pense qu’ils arrivent, qu’ils sont proches. Elle est en transe.
     </p>
@@ -69,6 +70,7 @@
 
     <div class="button-wrapper">
       <a class="nav-button" href="zigzagscript.html">Accueil</a>
+      <a id="previousEpisode" class="nav-button" href="#">← Épisode précédent</a>
       <a id="nextEpisode" class="nav-button" href="#">La suite →</a>
     </div>
   </div>
@@ -86,6 +88,7 @@
     }
 
     document.getElementById('nextEpisode').href = `episode10.html?musique=${musique}`;
+    document.getElementById('previousEpisode').href = `episode8.html?musique=${musique}`;
   </script>
 </body>
 </html>
