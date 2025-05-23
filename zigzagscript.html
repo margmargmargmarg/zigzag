@@ -30,19 +30,21 @@
       max-width: 750px;
       text-align: center;
     }
-    .btn-music, .btn-scenario {
+    .btn-scenario, .nav-links a, .dialogue-box button {
       background-color: #f8bbd0;
       color: #4a148c;
       border: none;
-      padding: 1.2em 2em;
+      padding: 1em 2em;
       font-weight: bold;
       cursor: pointer;
       border-radius: 20px;
       box-shadow: 0 0 10px #ce93d8;
-      margin: 1em 0;
       font-size: 1.2em;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s;
     }
-    .btn-music:hover, .btn-scenario:hover {
+    .btn-scenario:hover, .nav-links a:hover, .dialogue-box button:hover {
       background-color: #f48fb1;
     }
     .pitch, .logline-box {
@@ -69,18 +71,6 @@
       flex-wrap: wrap;
       gap: 1em;
     }
-    .nav-links a {
-      text-decoration: none;
-      color: #4a148c;
-      font-weight: bold;
-      border: 1px solid #f48fb1;
-      padding: 0.5em 1em;
-      border-radius: 15px;
-      background: #fff0f5;
-    }
-    .nav-links a:hover {
-      background-color: #f8bbd0;
-    }
     .dialogue-box {
       display: none;
       position: fixed;
@@ -93,19 +83,6 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
       text-align: center;
       z-index: 1000;
-    }
-    .dialogue-box button {
-      margin: 1em;
-      padding: 0.7em 1.5em;
-      background-color: #f8bbd0;
-      border: none;
-      border-radius: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      color: #4a148c;
-    }
-    .dialogue-box button:hover {
-      background-color: #f48fb1;
     }
     .overlay {
       display: none;
