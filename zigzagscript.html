@@ -72,6 +72,23 @@
       flex-wrap: wrap;
       gap: 0.5em;
     }
+    .footer-link {
+      margin-top: 2em;
+      text-align: center;
+    }
+    .footer-link a {
+      background-color: #f8bbd0;
+      color: #4a148c;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.8em 1.5em;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #ce93d8;
+      display: inline-block;
+    }
+    .footer-link a:hover {
+      background-color: #f48fb1;
+    }
     .dialogue-box {
       display: none;
       position: fixed;
@@ -113,12 +130,15 @@
     <div class="logline-box">
       <p class="logline">Elle veut faire le bien. Mais elle va surtout foutre le bordel.</p>
     </div>
-    <button class="btn-scenario" onclick="showDialogue()">📖 Lire le scénario</button>
+    <button class="btn-scenario" onclick="showDialogue()">📓 Lire le scénario</button>
     <div class="nav-links">
       <a href="Synopsis.html">Synopsis</a>
       <a href="Concept.html">Concept</a>
       <a href="Note.html">Note d'intention</a>
       <a href="Moodboard.html">Moodboard</a>
+    </div>
+    <div class="footer-link">
+      <a href="Sommaire.html">Sommaire</a>
     </div>
   </div>
 
