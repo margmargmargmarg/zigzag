@@ -22,9 +22,14 @@
       text-align: center;
     }
     .music {
-      display: none;
       margin: 2em auto;
       text-align: center;
+    }
+    iframe {
+      width: 560px;
+      height: 315px;
+      max-width: 100%;
+      border: none;
     }
     .button-wrapper {
       display: flex;
@@ -56,23 +61,27 @@
       Zig découvre la grossesse de Myriam et décide d’en informer Kostia, son amant toxique, persuadée que cela guérira leur lien. Ils décident effectivement de se remettre ensemble, Kostia sort même un freestyle légèrement cringe sur le bébé à venir. Luisa et Yves, qui le haïssent, sont au désespoir. Zig reste convaincue que cet enfant est leur bénédiction.
     </p>
 
-    <div class="music" id="musicPlayer">
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-        src="https://www.youtube.com/embed/Zk27hKhuiyg?autoplay=1">
-      </iframe>
-    </div>
+    <div class="music" id="musicPlayer"></div>
 
     <div class="button-wrapper">
-      <a class="nav-button" href="index.html">Accueil</a>
-      <a class="nav-button" href="episode3.html?musique=oui">La suite →</a>
+      <a class="nav-button" href="zigzagscript.html">Accueil</a>
+      <a id="nextEpisode" class="nav-button" href="#">La suite →</a>
     </div>
   </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    if (params.get('musique') === 'oui') {
-      document.getElementById('musicPlayer').style.display = 'block';
+    const musique = params.get('musique');
+    const musicContainer = document.getElementById('musicPlayer');
+
+    if (musique === 'oui' || musique === 'non') {
+      const autoplay = musique === 'oui' ? '1' : '0';
+      musicContainer.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/Zk27hKhuiyg?autoplay=${autoplay}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      `;
     }
+
+    document.getElementById('nextEpisode').href = `episode3.html?musique=${musique}`;
   </script>
 </body>
 </html>
